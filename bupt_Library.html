@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/web.css" />
+    <link rel="stylesheet" href="css/accordion.css" />
+    <script src="js/aframe.js"></script>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>北京邮电大学图书馆</title>
+  </head>
+  <body>
+    <!--构建一个页面关键元素,这个元素指定到底现在VR界面在第几张图,为一个索引值,这个索引也去寻找到底调用哪张图书馆的全景图,同时去找图书馆的哪个音频-->
+    <template id="0"></template>
+    <!-- 构建一个关键页面元素,这个元素指定当前在图书馆的哪层楼,用于手风琴展示 -->
+    <template id="1"></template>
+    <!--歌曲在这里存储-->
+    <div class="audios">
+      <audio src="audio/guoge.mp3" id="guoge"></audio>
+    </div>
+    <div class="byr-mask-show">
+      More
+    </div>
+    <div class="web">
+      <!--    标题-->
+      <h2 class="byr-main-title">北京邮电大学图书馆</h2>
+      <h3 class="byr-sub-title">下拉菜单可跳转场景</h3>
+      <!--    实现首页的手风琴-->
+      <div class="accordion">
+        <div class="tab">
+          <label for="tab1">
+            <div class="tab-item">楼层1</div>
+          </label>
+          <input type="radio" name="tab" id="tab1" />
+          <div class="tab-content-item"></div>
+          <label for="tab2">
+            <div class="tab-item">楼层2</div>
+          </label>
+          <input type="radio" name="tab" id="tab2" />
+          <div class="tab-content-item">
+            <span class="byr-floor-room">海滩边的城堡</span>
+            <span class="byr-floor-room">格子屋</span>
+          </div>
+          <label for="tab3">
+            <div class="tab-item">楼层3</div>
+          </label>
+          <input type="radio" name="tab" id="tab3" />
+          <div class="tab-content-item">
+            Where The Fields And I And See You Once A Again
+          </div>
+          <label for="tab4">
+            <div class="tab-item">楼层4</div>
+          </label>
+          <input type="radio" name="tab" id="tab4" />
+          <div class="tab-content-item">My Love</div>
+        </div>
+      </div>
+      <!--    手风琴结束-->
+      <!-- 页面元素部分开始 -->
+      <div class="sound_controller">
+        <img src="images/off.png" id="music" alt="music" />
+        <!--        <img src="images/on.png" id="open">-->
+      </div>
+      <div class="floor_controller">
+        <i class="floor_up">
+          <img src="images/up.png" id="up" />
+        </i>
+        <i class="floor_down">
+          <img src="images/down.png" id="down" />
+        </i>
+      </div>
+      <div>
+        <!--        点赞功能开始-->
+        <div class="love">
+          <span class="count">10</span>
+          <img src="images/love.jpg" id="love" />
+        </div>
+        <!--        点赞功能结束-->
+        <i class="message">
+          <a href="html/message.html" target="_blank">
+            <img src="images/message.jpg" id="message" />
+          </a>
+        </i>
+      </div>
+      <!-- 页面元素控制部分结束 -->
+    </div>
+    <a-scene cursor="ray-origin:mouse">
+      <a-assets>
+        <img src="images/zuofeiji.png" id="left" />
+        <img src="images/youfeiji.png" id="right" />
+        <img src="images/pages/01_city.jpg" id="city" />
+        <img src="images/pages/02_sechelt.jpg" id="sechelt" />
+        <img src="images/pages/03_cubes.jpg" id="cube" />
+        <img src="images/pages/test.jpg" id="test" />
+      </a-assets>
+      <a-sky src="#city" id="sky"></a-sky>
+      <!--      <a-image src="#test" position="1 -4 -3" id="thumb_image"></a-image>-->
+      <a-image src="#left" position="-3 2 -3" id="left_fly"></a-image>
+      <a-image src="#right" position="3 2 -3" id="right_fly"></a-image>
+    </a-scene>
+  </body>
+  <script src="./js/show.js"></script>
+  <!--  <script src="js/accordion.  js"></script>-->
+  <!--  <script src="js/changeFloor.js"></script>-->
+  <!--  <script src="js/changeTest.js"></script>-->
+  <script src="js/changeScene.js"></script>
+  <!--  <script src="./js/Music.js"></script>-->
+  <!--  <script src="./js/love.js"></script>-->
+</html>
